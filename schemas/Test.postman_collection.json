@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "b574ea3d-5c6c-4dd6-8e41-a72fea4342c2",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "200 - getList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/collections",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"collections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "200 - getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/collections/64d9497b43f56a2c8ac43cdb",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"collections",
+						"64d9497b43f56a2c8ac43cdb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "200 - create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"info\": {\r\n        \"name\": \"New test\",\r\n        \"schema\": \"http://localhost:3000\"\r\n    },\r\n    \"item\": []\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/collections",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"collections"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "Test_Token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.info('Starting request...');"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

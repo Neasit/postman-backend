@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "0f9e7fca-f5fe-41e1-ba91-e87d98bf28e2",
+		"name": "SpaceGate - test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Put - test",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"marketingCampaign\": {\r\n    \"id\": \"Test id\",\r\n    \"technicalId\": \"7011q000000vY7TAAU\"\r\n  },\r\n  \"note\":[\r\n    {\r\n      \"author\": \"Test author\",\r\n      \"id\": \"Test id\",\r\n      \"text\": \"Test new \"\r\n    }\r\n  ],\r\n  \"prospectContact\": [\r\n    {\r\n      \"characteristic\": {\r\n        \"city\": \"Musterstadt\",\r\n        \"country\": \"Germany\",\r\n        \"emailAddress\": \"Volker@external.de\",\r\n        \"phoneNumber\": \"0049 4444 555\",\r\n        \"mobileNumber\": \"+30 697 1111 256\",\r\n        \"postCode\": \"12345\",\r\n        \"stateOrProvince\": \"Saxony\",\r\n        \"street1\": \"Hauptstrasse\",\r\n        \"street2\": \"6b\"\r\n      },\r\n      \"mediumType\": \"Test type\"\r\n    }\r\n  ],\r\n  \"relatedParty\": [\r\n    {\r\n      \"@referredType\": \"individual\",\r\n      \"name\": \"Test\",\r\n      \"firstName\": \"PostmanVolker\",\r\n      \"salutation\": \"Herr\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://preprod.spacegate.telekom.de/tsi/sal-ts-sales-lead/v1/salesLead",
+					"protocol": "https",
+					"host": [
+						"preprod",
+						"spacegate",
+						"telekom",
+						"de"
+					],
+					"path": [
+						"tsi",
+						"sal-ts-sales-lead",
+						"v1",
+						"salesLead"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{iris_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const tokenUrl = \"https://preprod.spacegate.telekom.de/auth/realms/default/protocol/openid-connect/token\";",
+					"",
+					"const client_id = \"tsi--tsi-api-h--tsitest-danilin\";",
+					"const client_secret = \"a3e9ab44-568e-4b9d-b9f5-51f0681d6dd2\";",
+					"const grant_type = \"client_credentials\";",
+					"",
+					"const getTokenRequest = {",
+					"  method: 'POST',",
+					"  header: {",
+					"    'Content-Type': 'application/x-www-form-urlencoded',",
+					"    },",
+					"  url: tokenUrl,",
+					"  body: {",
+					"      mode: 'urlencoded',",
+					"      urlencoded: [",
+					"            {   key: 'client_id', value: client_id },",
+					"            {   key: 'client_secret', value: client_secret },",
+					"            {   key: 'grant_type', value: grant_type }",
+					"        ],",
+					"  }",
+					"};",
+					"",
+					"pm.sendRequest(getTokenRequest, (err, response) => {",
+					"    console.log(response.json());",
+					"  const jsonResponse = response.json();",
+					"  const newAccessToken = jsonResponse.access_token;",
+					"",
+					"    pm.environment.set('iris_token', newAccessToken);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
