@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Patch, Delete } from '@nestjs/common';
 import { CollectionsService } from './collections.service';
 import { Collection } from './model/collection.model';
 
@@ -19,5 +19,15 @@ export class CollectionsController {
   @Post()
   async create(@Body() requestBody: Collection) {
     return await this.collectionsService.create(requestBody);
+  }
+
+  @Patch(':id')
+  async update(@Param('id') id: string, @Body() requestBody: Collection) {
+    return await this.collectionsService.updateCollection(id, requestBody);
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: string) {
+    return await this.collectionsService.delete(id);
   }
 }

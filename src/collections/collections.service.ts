@@ -46,4 +46,33 @@ export class CollectionsService {
     const result = await newCollection.save();
     return result;
   }
+
+  async updateCollection(id: string, data: Collection) {
+    // const oCollection = this.getById(id);
+
+    const result = await this.collectionModel.updateOne(
+      { _id: id },
+      {
+        info: data.info,
+        item: data.item,
+        event: data.event,
+        auth: data.auth,
+        variable: data.variable || null,
+      },
+    );
+
+    if (result.modifiedCount == 0) {
+      throw new InternalServerErrorException('Problem with update collection!');
+    }
+    return id;
+  }
+
+  async delete(id: string) {
+    const result = await this.collectionModel.deleteOne({ _id: id });
+
+    if (result.deletedCount == 0) {
+      throw new InternalServerErrorException('Problem with delete collection!');
+    }
+    return id;
+  }
 }

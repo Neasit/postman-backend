@@ -7,8 +7,13 @@ export class RunsController {
   constructor(private readonly runsService: RunsService) {}
 
   @Get()
-  getList(@Param('date') date: Date): string {
-    return this.runsService.getList(date);
+  async getList(@Param('date') date: Date) {
+    return await this.runsService.getList(date);
+  }
+
+  @Get(':id')
+  async getById(@Param('id') id: string) {
+    return await this.runsService.getById(id);
   }
 
   @Post()

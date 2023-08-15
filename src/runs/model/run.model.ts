@@ -4,6 +4,7 @@ import { mangooseTrasformJSON } from '../../utils';
 export interface Run {
   id: string;
   collectionId: string;
+  environmentId: string;
   request: string;
   date: Date;
   status: status;
@@ -20,6 +21,7 @@ export const RunSchema = new mongoose.Schema(
   {
     id: { type: String, require: true },
     collectionId: String,
+    environmentId: String,
     request: String,
     date: Date,
     status: String,

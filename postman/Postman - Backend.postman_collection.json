@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "b574ea3d-5c6c-4dd6-8e41-a72fea4342c2",
+		"name": "Postman - Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "collection",
+			"item": [
+				{
+					"name": "200 - getList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/collections",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"collections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 - getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/collections/64d9497b43f56a2c8ac43cdb",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"collections",
+								"64d9497b43f56a2c8ac43cdb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 - create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"info\": {\r\n        \"name\": \"New test\",\r\n        \"schema\": \"http://localhost:3000\"\r\n    },\r\n    \"item\": []\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/collections",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"collections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 - update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"info\": {\r\n        \"name\": \"Seconde Test (updated)\",\r\n        \"schema\": \"\",\r\n        \"id\": \"64d9497b43f56a2c8ac43cdc\"\r\n    },\r\n    \"item\": [],\r\n    \"event\": [],\r\n    \"variable\": [],\r\n    \"id\": \"64d9497b43f56a2c8ac43cdb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/collections/64d9497b43f56a2c8ac43cdb",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"collections",
+								"64d9497b43f56a2c8ac43cdb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 - delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/collections/64d90ce38752fa114753a459",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"collections",
+								"64d90ce38752fa114753a459"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "run",
+			"item": [
+				{
+					"name": "200 - getList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/runs",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"runs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 - getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/runs",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"runs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 - create run",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"collectionId\": \"64da4ebad489c60eb4f105e5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/runs",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"runs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "environment",
+			"item": [
+				{
+					"name": "200 - getList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/environments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"environments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 - getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/environments/64dbd7f87007e531971fec9f",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"environments",
+								"64dbd7f87007e531971fec9f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 - create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test\",\r\n    \"values\": [\r\n        {\r\n            \"key\": \"var\",\r\n            \"value\": \"test\",\r\n            \"type\": \"\",\r\n            \"enabled\": true\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/environments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"environments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "Test_Token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.info('Starting request...');"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
